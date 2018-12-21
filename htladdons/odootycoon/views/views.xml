@@ -1,28 +1,34 @@
 <odoo>
   <data>
     <!-- explicit list view definition -->
-    <!--
-    <record model="ir.ui.view" id="odootycoon.list">
-      <field name="name">odootycoon list</field>
-      <field name="model">odootycoon.odootycoon</field>
+    
+    <record model="ir.ui.view" id="odootycoon.gamemanagerlist">
+      <field name="name">odoo tycoon game manager list</field>
+      <field name="model">odootycoon.gamemanager</field>
       <field name="arch" type="xml">
         <tree>
           <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
+          <field name="day"/>
+          <field name="cash"/>
         </tree>
       </field>
     </record>
-    -->
+    
 
     <!-- actions opening views on models -->
-    <!--
+    
     <record model="ir.actions.act_window" id="odootycoon.action_window">
-      <field name="name">odootycoon window</field>
-      <field name="res_model">odootycoon.odootycoon</field>
+      <field name="name">Odoo Tycoooon</field>
+      <field name="res_model">odootycoon.gamemanager</field>
       <field name="view_mode">tree,form</field>
     </record>
-    -->
+    
+
+    <record model="ir.actions.act_window" id="odootycoon.action_product">
+      <field name="name">Odoo Tycoon Products</field>
+      <field name="res_model">product.template</field>
+      <field name="view_mode">kanban,tree,form</field>
+    </record>
 
     <!-- server action to the one above -->
     <!--
@@ -41,20 +47,19 @@
     -->
 
     <!-- Top menu item -->
-    <!--
-    <menuitem name="odootycoon" id="odootycoon.menu_root"/>
-    -->
+    
+    <menuitem name="Odoo Tycoon" id="odootycoon.menu_root"/>
+    
     <!-- menu categories -->
-    <!--
-    <menuitem name="Menu 1" id="odootycoon.menu_1" parent="odootycoon.menu_root"/>
-    <menuitem name="Menu 2" id="odootycoon.menu_2" parent="odootycoon.menu_root"/>
-    -->
+    
+    <menuitem name="Game" id="odootycoon.menu_1" parent="odootycoon.menu_root"/>
+    
     <!-- actions -->
-    <!--
-    <menuitem name="List" id="odootycoon.menu_1_list" parent="odootycoon.menu_1"
+    
+    <menuitem name="Game Manager" id="odootycoon.menu_1_gamemanager" parent="odootycoon.menu_1"
               action="odootycoon.action_window"/>
-    <menuitem name="Server to list" id="odootycoon" parent="odootycoon.menu_2"
-              action="odootycoon.action_server"/>
-    -->
+    <menuitem name="Products" id="odootycoon.menu_1_products" parent="odootycoon.menu_1"
+              action="odootycoon.action_product"/>
+    
   </data>
 </odoo>

@@ -2,14 +2,26 @@
 
 from odoo import models, fields, api
 
-# class odootycoon(models.Model):
-#     _name = 'odootycoon.odootycoon'
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+class odootycoon_producttemplate(models.Model):
+    _name = 'product.template'
+    _inherit = 'product.template'
+    unlockcost = fields.Float('Unlock Cost', default=750)
+    unlocked = fields.Boolean('Unlocked', default=False)
+
+
+class odootycoon_gamemanager(models.Model):
+    _name = 'odootycoon.gamemanager'
+    name = fields.Char('Game Name', default='New Game')
+    day = fields.Integer('Current Day', default=1)
+    cash = fields.Float('Cash', default=500)
+
+    def nextday(self):
+        self.write({
+            'day': self.day + 1,
+            'cash': self.day - 100
+            })
+
+    def skip5days(self):
+        for i in range(5):
+            self.nextday()
