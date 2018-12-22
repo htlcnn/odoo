@@ -15,16 +15,31 @@
     </record>
     
 
+    <record model="ir.ui.view" id="odootycoon.producttemplateform">
+      <field name="name">odoo tycoon product</field>
+      <field name="model">product.template</field>
+      <field name="inherit_id" ref="product.product_template_only_form_view"/>
+      <field name="arch" type="xml">
+          <notebook position="inside">
+              <page string="Odoo Tycoon Product">
+                  <group>
+                      <field name="unlock_cost"/>
+                      <field name="unlocked"/>
+                  </group>
+              </page>
+          </notebook>
+      </field>
+    </record>
     <!-- actions opening views on models -->
     
-    <record model="ir.actions.act_window" id="odootycoon.action_window">
+    <record model="ir.actions.act_window" id="odootycoon.action_gamemanager">
       <field name="name">Odoo Tycoooon</field>
       <field name="res_model">odootycoon.gamemanager</field>
       <field name="view_mode">tree,form</field>
     </record>
     
 
-    <record model="ir.actions.act_window" id="odootycoon.action_product">
+    <record model="ir.actions.act_window" id="odootycoon.action_products">
       <field name="name">Odoo Tycoon Products</field>
       <field name="res_model">product.template</field>
       <field name="view_mode">kanban,tree,form</field>
@@ -57,9 +72,9 @@
     <!-- actions -->
     
     <menuitem name="Game Manager" id="odootycoon.menu_1_gamemanager" parent="odootycoon.menu_1"
-              action="odootycoon.action_window"/>
+              action="odootycoon.action_gamemanager"/>
     <menuitem name="Products" id="odootycoon.menu_1_products" parent="odootycoon.menu_1"
-              action="odootycoon.action_product"/>
+              action="odootycoon.action_products"/>
     
   </data>
 </odoo>

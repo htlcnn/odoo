@@ -6,7 +6,7 @@ from odoo import models, fields, api
 class odootycoon_producttemplate(models.Model):
     _name = 'product.template'
     _inherit = 'product.template'
-    unlockcost = fields.Float('Unlock Cost', default=750)
+    unlock_cost = fields.Float('Unlock Cost', default=750)
     unlocked = fields.Boolean('Unlocked', default=False)
 
 
